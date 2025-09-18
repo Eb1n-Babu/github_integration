@@ -27,7 +27,7 @@ Sample Invalid Usernames: thisuserdoesnotexist12345, invalid_account_xyz, notare
 ## Installation
 1. **Clone/Setup Project**:
 
-git clone <repo-url> github_integration
+git clone git remote add origin https://github.com/Eb1n-Babu/github_integration.git
 cd github_integration
 python -m venv venv
 venv\Scripts\activate  # Windows

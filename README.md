@@ -120,7 +120,7 @@ Test Invalid: Enter "thisuserdoesnotexist12345" → "User 'thisuserdoesnotexist1
 
 
 Stop & Clean:
-textdocker stop github-app
+docker stop github-app
 docker rm github-app
 
 **Production Tips:**

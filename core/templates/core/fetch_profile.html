@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}  <!-- Load static tag at the top -->
 {% block title %}Fetch User Profile{% endblock %}
 {% block content %}
 <div class="row justify-content-center">
@@ -8,6 +9,11 @@
                 <h3 class="card-title"><i class="bi bi-person-plus"></i> Fetch User Profile & Repos</h3>
             </div>
             <div class="card-body">
+                <!-- Under Development Alert (Auto-closes after 15 seconds via external JS) -->
+                <div class="alert alert-warning alert-dismissible fade show" role="alert" id="dev-alert">
+                    <i class="bi bi-exclamation-triangle"></i> This is still under development and may cause errors.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
                 <form method="post">
                     {% csrf_token %}
                     <div class="mb-3">
@@ -47,4 +53,7 @@
         </div>
     </div>
 </div>
+
+<!-- Load Auto-Close Alert JS at the end of content block -->
+<script src="{% static 'core/js/alert-auto-close.js' %}"></script>
 {% endblock %}

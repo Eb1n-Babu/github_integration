@@ -138,11 +138,3 @@ if not DEBUG:
 
 CSRF_TRUSTED_ORIGINS = ['https://yourdomain.com'] if not DEBUG else []
 
-# github_integration/urls.py
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('core.urls')),
-]

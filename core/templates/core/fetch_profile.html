@@ -1,0 +1,50 @@
+{% extends 'core/base.html' %}
+{% block title %}Fetch User Profile{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><i class="bi bi-person-plus"></i> Fetch User Profile & Repos</h3>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <div class="text-danger">{{ form.username.errors }}</div>
+                        {% endif %}
+                        <small class="form-text text-muted">{{ form.username.help_text }}</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Fetch Data</button>
+                </form>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Sample Valid Users</h5>
+                        <ul class="list-unstyled">
+                            <li>octocat</li>
+                            <li>torvalds</li>
+                            <li>JakeWharton</li>
+                            <li>mojombo</li>
+                            <li>pjhyett</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5>Sample Invalid Users</h5>
+                        <ul class="list-unstyled">
+                            <li>thisuserdoesnotexist12345</li>
+                            <li>invalid_account_xyz</li>
+                            <li>notarealuser_999</li>
+                            <li>fake_github_user_test</li>
+                            <li>ghost123fake</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% block title %}Profile: {{ username }}{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <h2>Profile for <strong>{{ username }}</strong></h2>
+        <div class="card mb-4">
+            <div class="card-header">User Profile</div>
+            <div class="card-body">
+                <p><strong>Name:</strong> {{ profile.name }}</p>
+                <p><strong>Public Repos:</strong> {{ profile.public_repos }}</p>
+                <p><strong>Followers:</strong> {{ profile.followers }} | <strong>Following:</strong> {{ profile.following }}</p>
+                <p><strong>Created At:</strong> {{ profile.created_at }}</p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">Repositories ({{ repos|length }})</div>
+            <div class="card-body">
+                {% if repos %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Language</th>
+                                    <th>Stars</th>
+                                    <th>Forks</th>
+                                    <th>Last Updated</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for repo in repos %}
+                                <tr>
+                                    <td>{{ repo.name }}</td>
+                                    <td><span class="badge bg-secondary">{{ repo.language }}</span></td>
+                                    <td>{{ repo.stars }}</td>
+                                    <td>{{ repo.forks }}</td>
+                                    <td>{{ repo.updated_at }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>No public repositories found.</p>
+                {% endif %}
+            </div>
+        </div>
+        <a href="{% url 'core:fetch_profile' %}" class="btn btn-secondary mt-3">Back to Fetch</a>
+    </div>
+</div>
+{% endblock %}

@@ -33,6 +33,20 @@ python -m venv venv
 venv\Scripts\activate  # Windows
 pip install -r requirements.txt</repo-url>
 
+**⚙️ Generate a New Secret Key & Configure .env**
+
+To ensure secure and smooth project setup:
+- Generate a new Django secret key by running:
+
+`python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'`
+
+- Create a .env file in the project root (if it doesn't exist), and add the following:
+
+**SECRET_KEY=your_generated_secret_key_here**
+
+- Replace your_generated_secret_key_here with the output from step 1.
+- Make sure your settings.py reads the key from .env:
+
 
 2. **Database Setup** (SQLite):
 

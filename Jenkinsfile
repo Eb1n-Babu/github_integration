@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Unit Tests') {
             steps {
-                bat 'C:\\Users\\ebinb\\AppData\\Local\\Programs\\Python\\Python313\\python.exe -m unittest github_integration\\core\\tests.py'
+                bat 'python manage.py test'
             }
         }
     }
